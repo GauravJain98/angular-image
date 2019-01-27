@@ -7,13 +7,23 @@ import {ImageService } from '../shared/image.service'
   styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
-  images: any[]
+  images: any[];
+  imagesFound = false;
   constructor(private _imageService: ImageService) { }
 
-  searchImage(query:string){
+  success(data){
+    console.log(data);
+    this.imagesFound = true;
+    this.images = data.hits;
+  }
+  errorFound(error){
+    console.log(error)
+  }
+
+  searchImage(query:string){ 
     return this._imageService.getImage(query).subscribe(
-      data => console.log(data),
-      error => console.log(error),
+      data => this.success(data),
+      error => this.errorFound(error),
       () => console.log("Request Completed")
     )
   }

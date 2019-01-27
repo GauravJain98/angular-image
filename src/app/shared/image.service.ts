@@ -14,6 +14,6 @@ export class ImageService{
     }
 
     getImage(query){
-        return this._http.get(this.URL+query+this.perPage)
+        return this._http.get(this.URL+query+this.perPage) 
     }
 }
