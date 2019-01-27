@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ImageService } from '../shared/image.service'
-
+import { ImageComponent } from '../image/image.component'
 @Component({
   selector: 'app-image-list',
   templateUrl: './image-list.component.html',
